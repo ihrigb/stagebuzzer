@@ -1,10 +1,10 @@
 from .display import Display
-from .led import Led
+from .lcd import Lcd
 
 
 class View:
 
-    _led = Led()
+    _led = Lcd()
 
     def name(self):
         pass
