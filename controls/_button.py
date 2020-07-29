@@ -6,7 +6,7 @@ class Button:
         self._on_push = on_push
 
         GPIO.setup(gpio_pin, GPIO.IN)
-        GPIO.add_event_detect(gpio_pin, GPIO.RISING, callback=self._on_push)
+        GPIO.add_event_detect(gpio_pin, GPIO.RISING, callback=self._on_push, bouncetime=200)
 
     def set_on_push(self, on_push):
         self._on_push = on_push
