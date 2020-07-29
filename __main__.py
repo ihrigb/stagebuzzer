@@ -23,7 +23,7 @@ def main():
     d = display.Display(
         [main_view, menu_view, general_menu_view, dmx_menu_view, dmx_menu_buzzer_1_view, dmx_menu_buzzer_2_view,
          audio_menu_view, audio_file_menu_view, relay_menu_view, information_menu_view])
-    c = controls.Controls(d)
+    # c = controls.Controls(d)
 
     while True:
         pass
