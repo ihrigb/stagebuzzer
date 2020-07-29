@@ -4,7 +4,7 @@ from ._hd44780_lcd import HD44780Lcd
 
 class View:
 
-    _led = HD44780Lcd()
+    _lcd = HD44780Lcd()
 
     def name(self):
         pass
@@ -25,7 +25,7 @@ class View:
         pass
 
     def write_line(self, num: int, value: str):
-        self._led.write_line(num, value)
+        self._lcd.write_line(num, value)
 
     def flush(self):
-        self._led.flush()
+        self._lcd.flush()
