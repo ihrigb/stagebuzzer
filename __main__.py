@@ -25,6 +25,9 @@ def main():
          audio_menu_view, audio_file_menu_view, relay_menu_view, information_menu_view])
     c = controls.Controls(d)
 
+    while True:
+        pass
+
 
 if __name__ == "__main__":
     main()
