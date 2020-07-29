@@ -18,7 +18,7 @@ class HD44780Lcd(Lcd):
         self._lines[num] = value
 
     def flush(self):
+        lcd.clear()
         for row, value in enumerate(self._lines):
-            lcd.clear()
             lcd.cursor_pos = (row, 0)
             lcd.write_string(value)
