@@ -1,10 +1,10 @@
-from .display import Display
-from .lcd import Lcd
+from ._display import Display
+from ._console_lcd import ConsoleLcd
 
 
 class View:
 
-    _led = Lcd()
+    _led = ConsoleLcd()
 
     def name(self):
         pass

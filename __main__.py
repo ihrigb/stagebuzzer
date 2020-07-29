@@ -16,9 +16,10 @@ dmx_menu_buzzer_2_view = display.DmxBuzzerMenuView("dmx_menu_buzzer_2_view", "2"
 audio_menu_view = display.AudioMenuView(audio_config)
 audio_file_menu_view = display.AudioFileMenuView(audio_config)
 relay_menu_view = display.RelayMenuView(relay_config)
+information_menu_view = display.InformationMenuView()
 d = display.Display(
     [main_view, menu_view, general_menu_view, dmx_menu_view, dmx_menu_buzzer_1_view, dmx_menu_buzzer_2_view,
-     audio_menu_view, audio_file_menu_view, relay_menu_view])
+     audio_menu_view, audio_file_menu_view, relay_menu_view, information_menu_view])
 
 
 def esc(e):

@@ -1,4 +1,4 @@
-from .file import File
+from ._file import File
 from os import listdir, sep
 from os.path import isdir, exists, dirname
 

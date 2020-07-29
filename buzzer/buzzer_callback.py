@@ -1,4 +1,4 @@
-from .buzzer import Buzzer
+from ._buzzer import Buzzer
 
 
 class BuzzerCallback:

@@ -1,2 +1,2 @@
 from ._root import root
-from .file import File
+from ._file import File

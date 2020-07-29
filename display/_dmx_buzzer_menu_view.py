@@ -1,5 +1,5 @@
-from .view import View
-from .display import Display
+from ._view import View
+from ._display import Display
 from config import DmxConfig
 
 

@@ -1,5 +1,5 @@
-from .view import View
-from .display import Display
+from ._view import View
+from ._display import Display
 
 
 class SubMenu:
@@ -18,8 +18,9 @@ general_submenu = SubMenu("General", "general_menu_view")
 dmx_submenu = SubMenu("DMX", "dmx_menu_view")
 audio_submenu = SubMenu("Audio", "audio_menu_view")
 relay_submenu = SubMenu("Relay", "relay_menu_view")
+information_submenu = SubMenu("Information", "information_menu_view")
 menu_view_name = "menu_view"
-menu_list = [general_submenu, dmx_submenu, audio_submenu, relay_submenu]
+menu_list = [general_submenu, dmx_submenu, audio_submenu, relay_submenu, information_submenu]
 
 
 class MenuView(View):
@@ -41,7 +42,7 @@ class MenuView(View):
         if self._cursor < 2:
             self._cursor += 1
             self.draw()
-        elif self._cursor == 2 and self._top < 1:
+        elif self._cursor == 2 and self._top < (len(menu_list) - 3):
             self._top += 1
             self.draw()
 
