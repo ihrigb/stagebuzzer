@@ -1,5 +1,5 @@
 from ._button import Button
-from display import  Display
+from display import Display
 
 
 class Controls:
