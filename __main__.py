@@ -2,6 +2,7 @@ import display
 import config
 import controls
 import time
+import dmx
 
 
 def main():
@@ -25,6 +26,10 @@ def main():
         [main_view, menu_view, general_menu_view, dmx_menu_view, dmx_menu_buzzer_1_view, dmx_menu_buzzer_2_view,
          audio_menu_view, audio_file_menu_view, relay_menu_view, information_menu_view])
     c = controls.Controls(d)
+
+    # callbacks
+    dmx_output = dmx.DmxOutput()
+    dmx_callback = dmx.DmxBuzzerCallback(dmx_output, dmx_config)
 
     while True:
         time.sleep(1)

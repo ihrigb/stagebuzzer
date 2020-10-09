@@ -51,4 +51,12 @@ class GeneralMenuView(View):
         self.write_line(1, line1)
         self.write_line(2, "")
         self.write_line(3, "")
+
+        ok = not self._edit_mode
+        esc = True
+        up = self._edit_mode
+        down = self._edit_mode
+
+        self.set_button_lights(ok=ok, esc=esc, up=up, down=down)
+
         self.flush()

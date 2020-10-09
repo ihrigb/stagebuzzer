@@ -17,4 +17,7 @@ class MainView(View):
         self.write_line(1, "Buzzer 1")
         self.write_line(2, "Buzzer 2")
         self.write_line(3, "Version 0.1")
+
+        self.set_button_lights(ok=True)
+
         self.flush()

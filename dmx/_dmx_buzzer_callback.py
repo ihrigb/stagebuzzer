@@ -1,6 +1,6 @@
 import buzzer
 import config
-from .dmx_output import DmxOutput
+from ._dmx_output import DmxOutput
 
 
 class DmxBuzzerCallback(buzzer.BuzzerCallback):

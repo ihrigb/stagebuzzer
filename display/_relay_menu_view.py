@@ -30,6 +30,9 @@ class RelayMenuView(View):
         self.write_line(1, line)
         self.write_line(2, "")
         self.write_line(3, "")
+
+        self.set_button_lights(ok=True, esc=True)
+
         self.flush()
 
     def _switch_state(self):

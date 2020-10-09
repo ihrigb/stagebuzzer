@@ -1,10 +1,12 @@
 from ._display import Display
-from ._hd44780_lcd import HD44780Lcd
+from ._ea_dip203j_3njw_lcd import EaDip203J4Nlw
+from ._gpio_button_lights import GpioButtonLights
 
 
 class View:
 
-    _lcd = HD44780Lcd()
+    _lcd = EaDip203J4Nlw()
+    _button_lights = GpioButtonLights()
 
     def name(self):
         pass
@@ -27,5 +29,9 @@ class View:
     def write_line(self, num: int, value: str):
         self._lcd.write_line(num, value)
 
+    def set_button_lights(self, esc=False, ok=False, up=False, down=False):
+        self._button_lights.set(esc, ok, up, down)
+
     def flush(self):
         self._lcd.flush()
+        self._button_lights.flush()

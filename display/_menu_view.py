@@ -64,6 +64,14 @@ class MenuView(View):
                 line += "  "
             line += menu_list[i].name()
             self.write_line(line_number + 1, line)
+
+        esc = True
+        ok = True
+        up = self._cursor > 0 or (self._cursor == 0 and self._top > 0)
+        down = self._cursor < 2 or (self._cursor == 2 and self._top < (len(menu_list) - 3))
+
+        self.set_button_lights(esc=esc, ok=ok, up=up, down=down)
+
         self.flush()
 
     def _get_active_submenu(self) -> SubMenu:

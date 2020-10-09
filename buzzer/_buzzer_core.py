@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 from ._buzzer_gpio_config import BuzzerGpioConfig
+from ._buzzer_callback import BuzzerCallback
 
 buzzer_name_a = "a"
 buzzer_name_b = "b"

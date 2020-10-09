@@ -17,4 +17,7 @@ class InformationMenuView(View):
         self.write_line(1, "")
         self.write_line(2, "IP: {}".format(get_ip_address()))
         self.write_line(3, "")
+
+        self.set_button_lights(esc=True)
+
         self.flush()
