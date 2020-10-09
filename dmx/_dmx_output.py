@@ -4,6 +4,7 @@ from ._dmx import Dmx
 class DmxOutput:
 
     def __init__(self):
+        print("Starting DMX")
         self._dmx = Dmx('/dev/ttyUSB0')
         self._dmx.blackout()
         self._dmx.render()
