@@ -1,8 +1,5 @@
-from ._buzzer import Buzzer
-
-
 class BuzzerCallback:
-    def on_buzz(self, buzzer: Buzzer):
+    def on_buzz(self, buzzer: str):
         pass
 
     def reset(self):

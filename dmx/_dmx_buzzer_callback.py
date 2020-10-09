@@ -9,9 +9,9 @@ class DmxBuzzerCallback(buzzer.BuzzerCallback):
         self._output = output
         self._dmx_config = dmx_config
 
-    def on_buzz(self, buz: buzzer.Buzzer):
-        address = self._dmx_config.get_dmx_address(buz.get_name())
-        value = self._dmx_config.get_dmx_value(buz.get_name())
+    def on_buzz(self, buz: str):
+        address = self._dmx_config.get_dmx_address(buz)
+        value = self._dmx_config.get_dmx_value(buz)
         self._output.set(address, value)
 
     def reset(self):
