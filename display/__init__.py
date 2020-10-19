@@ -1,5 +1,6 @@
 from ._audio_menu_view import AudioMenuView
 from ._audio_file_menu_view import AudioFileMenuView
+from ._button_lights import ButtonLights
 from ._display import Display
 from ._dmx_buzzer_menu_view import DmxBuzzerMenuView
 from ._dmx_menu_view import DmxMenuView

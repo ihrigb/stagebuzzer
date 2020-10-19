@@ -1,3 +1,4 @@
+from ._button_lights import ButtonLights
 from ._view import View
 from ._display import Display
 from config import RelayConfig
@@ -8,7 +9,8 @@ relay_menu_view_name: str = "relay_menu_view"
 
 class RelayMenuView(View):
 
-    def __init__(self, relay_config: RelayConfig):
+    def __init__(self, button_ligts: ButtonLights, relay_config: RelayConfig):
+        super().__init__(button_ligts)
         self._relay_config = relay_config
 
     def name(self):

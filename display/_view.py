@@ -1,3 +1,4 @@
+from ._button_lights import ButtonLights
 from ._display import Display
 from ._ea_dip203j_3njw_lcd import EaDip203J4Nlw
 
@@ -5,6 +6,9 @@ from ._ea_dip203j_3njw_lcd import EaDip203J4Nlw
 class View:
 
     _lcd = EaDip203J4Nlw()
+
+    def __init__(self, button_lights: ButtonLights):
+        self._button_ligts = button_lights
 
     def name(self):
         pass
@@ -28,7 +32,7 @@ class View:
         self._lcd.write_line(num, value)
 
     def set_button_lights(self, esc=False, ok=False, up=False, down=False):
-        pass
+        self._button_ligts.set(esc, ok, up, down)
 
     def flush(self):
         self._lcd.flush()

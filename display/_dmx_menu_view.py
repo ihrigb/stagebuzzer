@@ -1,3 +1,4 @@
+from ._button_lights import ButtonLights
 from ._view import View
 from ._display import Display
 from config import DmxConfig
@@ -15,7 +16,8 @@ class DmxMenuView(View):
 
     _cursor: int = min_cursor_value
 
-    def __init__(self, dmx_config: DmxConfig):
+    def __init__(self, button_lights: ButtonLights, dmx_config: DmxConfig):
+        super().__init__(button_lights)
         self._dmx_config = dmx_config
 
     def name(self):

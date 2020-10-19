@@ -1,3 +1,4 @@
+from ._button_lights import ButtonLights
 from ._view import View
 from ._display import Display
 
@@ -6,6 +7,9 @@ main_view_name = "main_view"
 
 
 class MainView(View):
+    def __init__(self, button_lights: ButtonLights):
+        super().__init__(button_lights)
+
     def name(self):
         return main_view_name
 
