@@ -1,16 +1,20 @@
-from ._hd44780_lcd import HD44780Lcd
+from ._lcd import Lcd
 import RPi.GPIO as GPIO
 from RPLCD import CharLCD
 
 # GPIO.setmode(GPIO.BOARD)
 # lcd = CharLCD(pin_rs=26, pin_rw=7, pin_e=24, pins_data=[16, 12, 10, 8], numbering_mode=GPIO.BOARD, cols=20, rows=4,
 #              dotsize=8)
-GPIO.setmode(GPIO.BCM)
-lcd = CharLCD(pin_rs=18, pin_rw=23, pin_e=24, pins_data=[25, 8, 7, 12], numbering_mode=GPIO.BCM, cols=20, rows=4,
+
+
+class EaDip203J4Nlw(Lcd):
+
+    _lines: list = ["", "", "", ""]
+    _lcd = CharLCD(pin_rs=18, pin_rw=23, pin_e=24, pins_data=[25, 8, 7, 12], numbering_mode=GPIO.BCM, cols=20, rows=4,
               dotsize=8)
 
-
-class EaDip203J4Nlw(HD44780Lcd):
+    def write_line(self, num: int, value: str):
+        self._lines[num] = value
 
     def flush(self):
         self._lcd.clear()
