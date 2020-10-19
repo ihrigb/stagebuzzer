@@ -1,12 +1,11 @@
 from ._button_lights import ButtonLights
 from ._display import Display
 from ._ea_dip203j_3njw_lcd import EaDip203J4Nlw
-from ._hd44780_lcd import HD44780Lcd
 
 
 class View:
 
-    _lcd = HD44780Lcd()
+    _lcd = EaDip203J4Nlw()
 
     def __init__(self, button_lights: ButtonLights):
         self._button_ligts = button_lights
