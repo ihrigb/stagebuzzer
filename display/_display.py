@@ -5,6 +5,8 @@ class Display:
     def __init__(self, views: list):
         for view in views:
             self._views[view.name()] = view
+
+    def start(self):
         self.switch_view("main_view")
 
     def switch_view(self, name: str):

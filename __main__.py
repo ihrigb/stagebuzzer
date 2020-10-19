@@ -33,6 +33,8 @@ def main():
     dmx_output = dmx.DmxOutput()
     dmx_callback = dmx.DmxBuzzerCallback(dmx_output, dmx_config)
 
+    d.start()
+
     while True:
         time.sleep(1)
 
