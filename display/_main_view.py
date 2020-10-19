@@ -18,9 +18,9 @@ class MainView(View):
 
     def draw(self):
         self.write_line(0, "Stage Buzzer")
-        self.write_line(1, "Buzzer 1")
-        self.write_line(2, "Buzzer 2")
-        self.write_line(3, "Version 0.1")
+        self.write_line(1, "")
+        self.write_line(2, "Buzzer 1")
+        self.write_line(3, "Buzzer 2")
 
         self.set_button_lights(ok=True)
 

@@ -20,7 +20,7 @@ class InformationMenuView(View):
         self.write_line(0, "Information")
         self.write_line(1, "")
         self.write_line(2, "IP: {}".format(get_ip_address()))
-        self.write_line(3, "")
+        self.write_line(3, "Version: 0.1")
 
         self.set_button_lights(esc=True)
 
