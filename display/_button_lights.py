@@ -2,11 +2,6 @@ from typing import Callable
 
 
 class ButtonLights:
-    _left_hook = lambda state: state
-    _right_hook = lambda state: state
-    _up_hook = lambda state: state
-    _down_hook = lambda state: state
-
     def enable_left(self):
         self.set_left(True)
 
