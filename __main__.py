@@ -3,6 +3,7 @@ import config
 import controls
 import time
 import dmx
+import RPi.GPIO as GPIO
 
 
 def main():
@@ -40,4 +41,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    finally:
+        GPIO.cleanup()
