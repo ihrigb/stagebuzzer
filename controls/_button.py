@@ -23,6 +23,7 @@ class Button:
         print("Button {} pushed.".format(self._name))
         if self._on_push is not None:
             self._on_push(channel)
+            self.turn_on_led()
 
     def set_on_push(self, on_push):
         self._on_push = on_push

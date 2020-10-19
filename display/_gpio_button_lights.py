@@ -1,20 +1,16 @@
 import RPi.GPIO as GPIO
 from ._button_lights import ButtonLights
+from controls import Bu
 
 LEFT = "left"
 RIGHT = "right"
 UP = "up"
 DOWN = "down"
 
-GPIO_LEFT = 0
-GPIO_RIGHT = 0
-GPIO_UP = 0
-GPIO_DOWN = 0
-
 
 class GpioButtonLights(ButtonLights):
 
-    def __init__(self):
+    def __init__(self, button_up: Button):
         self._state = dict()
         self._state[LEFT] = False
         self._state[RIGHT] = False
