@@ -5,6 +5,9 @@ from RPLCD import CharLCD
 # GPIO.setmode(GPIO.BOARD)
 # lcd = CharLCD(pin_rs=26, pin_rw=7, pin_e=24, pins_data=[16, 12, 10, 8], numbering_mode=GPIO.BOARD, cols=20, rows=4,
 #              dotsize=8)
+
+_gpio_pin_e = 8
+
 GPIO.setmode(GPIO.BCM)
 
 
