@@ -18,7 +18,7 @@ class Button:
 
     def on_push(self, channel):
         time.sleep(0.01)
-        if not GPIO.input(self._gpio_pin):
+        if not GPIO.input(self._gpio_btn_pin):
             return
         print("Button {} pushed.".format(self._name))
         if self._on_push is not None:
