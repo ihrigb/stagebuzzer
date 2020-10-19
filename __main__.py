@@ -5,6 +5,8 @@ import time
 import dmx
 import RPi.GPIO as GPIO
 
+GPIO.setmode(GPIO.BCM)
+
 
 def main():
     general_config = config.GeneralConfig()
