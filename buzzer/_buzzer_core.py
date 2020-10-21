@@ -35,13 +35,13 @@ class BuzzerCore:
 
     def _callback_1(self, channel):
         time.sleep(0.01)
-        if not GPIO.input(_gpio.get_pin_1()):
+        if GPIO.input(_gpio.get_pin_1()):  # keep in mind this is pulled up
             return
         self._callback('1')
 
     def _callback_2(self, channel):
         time.sleep(0.01)
-        if not GPIO.input(_gpio.get_pin_2()):
+        if GPIO.input(_gpio.get_pin_2()):  # keep in mind this is pulled up
             return
         self._callback('2')
 
