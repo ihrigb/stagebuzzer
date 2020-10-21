@@ -2,6 +2,7 @@ from ._button_lights import ButtonLights
 from ._view import View
 from ._display import Display
 import buzzer as bzr
+import logging
 
 
 main_view_name = "main_view"
@@ -32,6 +33,7 @@ class MainView(View, bzr.BuzzerCallback):
         self.flush()
 
     def on_buzz(self, buzzer: str):
+        logging.debug('Buzzer callback for main view called.')
         if buzzer == '1':
             self._buzzer_1_enabled = True
         if buzzer == '2':

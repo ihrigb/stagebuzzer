@@ -66,6 +66,6 @@ class BuzzerCore:
         self._active_buzzer = buz
 
         for callback in self._buzzer_callbacks:
-            threading.Thread(target=callback.on_buzz, args=[buz]).start()
+            callback.on_buzz(buz)
 
         threading.Thread(target=self._reset).start()
