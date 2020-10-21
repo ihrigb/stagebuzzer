@@ -1,14 +1,26 @@
+import argparse
+import buzzer
 import display
 import config
 import controls
 import time
 import dmx
+import utils
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
 
 
 def main():
+    parser = argparse.ArgumentParser(description='Stagebuzzer')
+    parser.add_argument('-l', '--log-level', action='store', dest='log_level', default='INFO',
+                        help='Set log level, default: \'info\'')
+    parser.add_argument('-d', '--log-destination', action='store', dest='log_destination', default='',
+                        help='Set log destination (file), default \'\' (stdout)')
+    options = parser.parse_args()
+
+    utils.log_setup(options.log_level, options.log_destination)
+
     general_config = config.GeneralConfig()
     dmx_config = config.DmxConfig()
     audio_config = config.AudioConfig()
@@ -33,8 +45,12 @@ def main():
     c = controls.Controls(d, button_lights)
 
     # callbacks
+    callbacks = [main_view]
     dmx_output = dmx.DmxOutput()
     dmx_callback = dmx.DmxBuzzerCallback(dmx_output, dmx_config)
+    callbacks.append(dmx_callback)
+
+    buzzer_core = buzzer.BuzzerCore(general_config, callbacks)
 
     d.start()
 

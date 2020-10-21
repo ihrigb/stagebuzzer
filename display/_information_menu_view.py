@@ -7,8 +7,8 @@ information_menu_view_name = "information_menu_view"
 
 
 class InformationMenuView(View):
-    def __init__(self, button_ligts: ButtonLights):
-        super().__init__(button_ligts)
+    def __init__(self, button_lights: ButtonLights):
+        super().__init__(button_lights)
 
     def name(self):
         return information_menu_view_name
