@@ -24,8 +24,8 @@ class BuzzerCore:
         GPIO.setup(_gpio.get_pin_1(), GPIO.IN)
         GPIO.setup(_gpio.get_pin_2(), GPIO.IN)
 
-        GPIO.add_event_detect(_gpio.get_pin_1(), GPIO.RISING, callback=self._callback_1)
-        GPIO.add_event_detect(_gpio.get_pin_2(), GPIO.RISING, callback=self._callback_2)
+        GPIO.add_event_detect(_gpio.get_pin_1(), GPIO.FALLING, callback=self._callback_1)
+        GPIO.add_event_detect(_gpio.get_pin_2(), GPIO.FALLING, callback=self._callback_2)
 
     def register_buzzer_callback(self, buzzer_callback: BuzzerCallback):
         self._buzzer_callbacks.append(buzzer_callback)
