@@ -55,12 +55,12 @@ class BuzzerCore:
             self._active_buzzer = buz
 
             for callback in self._buzzer_callbacks:
-                threading.Thread(callback.on_buzz, args=[buz]).start()
+                threading.Thread(target=callback.on_buzz, args=[buz]).start()
 
             time.sleep(self._general_config.get_hold_time())
 
             for callback in self._buzzer_callbacks:
-                threading.Thread(callback.reset).start()
+                threading.Thread(target=callback.reset).start()
         finally:
             self._lock = False
             self._active_buzzer = None
