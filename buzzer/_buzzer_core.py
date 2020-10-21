@@ -33,13 +33,13 @@ class BuzzerCore:
     def unregister_buzzer_callback(self, buzzer_callback: BuzzerCallback):
         self._buzzer_callbacks.remove(buzzer_callback)
 
-    def _callback_1(self):
+    def _callback_1(self, channel):
         time.sleep(0.01)
         if not GPIO.input(_gpio.get_pin_1()):
             return
         self._callback('1')
 
-    def _callback_2(self):
+    def _callback_2(self, channel):
         time.sleep(0.01)
         if not GPIO.input(_gpio.get_pin_2()):
             return
