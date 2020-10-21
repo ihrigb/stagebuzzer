@@ -45,22 +45,27 @@ class BuzzerCore:
             return
         self._callback('2')
 
+    def _reset(self):
+        time.sleep(self._general_config.get_hold_time())
+
+        for callback in self._buzzer_callbacks:
+            threading.Thread(target=callback.reset).start()
+
+        self._lock = False
+        self._active_buzzer = None
+
     def _callback(self, buz: str):
         logging.info('Buzzer {} pressed.'.format(buz))
         if self._lock:
             logging.info('Buzzer already locked by {}'.format(self._active_buzzer))
             pass
-        try:
-            self._lock = True
-            self._active_buzzer = buz
 
-            for callback in self._buzzer_callbacks:
-                threading.Thread(target=callback.on_buzz, args=[buz]).start()
+        logging.debug('Setting lock for buzzer {}.'.format(buz))
 
-            time.sleep(self._general_config.get_hold_time())
+        self._lock = True
+        self._active_buzzer = buz
 
-            for callback in self._buzzer_callbacks:
-                threading.Thread(target=callback.reset).start()
-        finally:
-            self._lock = False
-            self._active_buzzer = None
+        for callback in self._buzzer_callbacks:
+            threading.Thread(target=callback.on_buzz, args=[buz]).start()
+
+        threading.Thread(target=self._reset).start()
