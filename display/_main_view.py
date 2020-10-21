@@ -26,7 +26,7 @@ class MainView(View, bzr.BuzzerCallback):
         self.write_line(0, "Stage Buzzer")
         self.write_line(1, "")
         self.write_line(2, "Buzzer 1{}".format(' <<<' if self._buzzer_1_enabled is True else ''))
-        self.write_line(3, "Buzzer 2{}".format(' <<<' if self._buzzer_1_enabled is True else ''))
+        self.write_line(3, "Buzzer 2{}".format(' <<<' if self._buzzer_2_enabled is True else ''))
 
         self.set_button_lights(ok=True)
 
@@ -41,5 +41,7 @@ class MainView(View, bzr.BuzzerCallback):
         self.draw()
 
     def reset(self):
+        logging.debug('Buzzer reset for main view called.')
         self._buzzer_1_enabled = False
         self._buzzer_2_enabled = False
+        self.draw()

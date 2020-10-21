@@ -61,7 +61,7 @@ class BuzzerCore:
         logging.info('Buzzer {} pressed.'.format(buz))
         if self._lock:
             logging.info('Buzzer already locked by {}'.format(self._active_buzzer))
-            pass
+            return
 
         logging.debug('Setting lock for buzzer {}.'.format(buz))
 
