@@ -46,7 +46,10 @@ class BuzzerCore:
         self._callback('2')
 
     def _reset(self):
+        logging.debug('Waiting for hold time to expire ({} s).'.format(self._general_config.get_hold_time()))
         time.sleep(self._general_config.get_hold_time())
+
+        logging.info('Hold time expired. Resetting...')
 
         for callback in self._buzzer_callbacks:
             threading.Thread(target=callback.reset).start()
