@@ -5,6 +5,7 @@ class DmxOutput:
 
     def __init__(self):
         self._dmx = OpenDmxUsb()
+        self._dmx.start()
         self._channels = [0] * 513
 
     def set(self, channel: int, value: int):
