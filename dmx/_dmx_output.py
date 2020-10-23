@@ -4,7 +4,6 @@ from ._open_dmx_usb import OpenDmxUsb
 class DmxOutput:
 
     def __init__(self):
-        super().__init__()
         self._dmx = OpenDmxUsb()
         self._dmx.start()
         self._channels = [0] * 513

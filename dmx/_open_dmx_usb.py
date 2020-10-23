@@ -8,6 +8,7 @@ product = 0x6001
 
 class OpenDmxUsb(threading.Thread):
     def __init__(self):
+        super().__init__()
         self.baud_rate = 250000
         self.data_bits = 8
         self.stop_bits = 2
