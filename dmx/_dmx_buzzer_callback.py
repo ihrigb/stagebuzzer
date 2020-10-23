@@ -15,7 +15,9 @@ class DmxBuzzerCallback(buzzer.BuzzerCallback):
         address = self._dmx_config.get_dmx_address(buz)
         value = self._dmx_config.get_dmx_value(buz)
         self._output.set(address, value)
+        self._output.flush()
 
     def reset(self):
         logging.debug('DMX reset called.')
         self._output.reset()
+        self._output.flush()

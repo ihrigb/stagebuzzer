@@ -1,7 +1,12 @@
 from usbdrive import File
 
 
-class GeneralConfig:
+class BaseConfig:
+    def get_config_map(self) -> dict:
+        return dict()
+
+
+class GeneralConfig(BaseConfig):
     _hold_time = 10
 
     def set_hold_time(self, hold_time: int):
@@ -11,8 +16,13 @@ class GeneralConfig:
     def get_hold_time(self) -> int:
         return self._hold_time
 
+    def get_config_map(self) -> dict:
+        conf = super().get_config_map()
+        conf['hold_time'] = self._hold_time
+        return conf
 
-class BaseConfig:
+
+class BaseCallbackConfig(BaseConfig):
     _active = True
 
     def activate(self):
@@ -30,20 +40,19 @@ class BaseConfig:
     def get_active(self):
         return self._active
 
-
-class AudioConfig(BaseConfig):
-    _audio_file: File = None
-
-    def set_audio_file(self, audio_file: File):
-        self._audio_file = audio_file
-
-    def get_audio_file(self) -> File:
-        return self._audio_file
+    def get_config_map(self) -> dict:
+        conf = super().get_config_map()
+        conf['active'] = self._active
+        return conf
 
 
-class DmxConfig(BaseConfig):
+class AudioConfig(BaseCallbackConfig):
+    pass
 
+
+class DmxConfig(BaseCallbackConfig):
     def __init__(self):
+        self.set_active(False)
         self._addresses = dict()
         self._addresses["1"] = 1
         self._addresses["2"] = 2
@@ -73,25 +82,13 @@ class DmxConfig(BaseConfig):
         if 0 <= value <= 255:
             self._values[name] = value
 
+    def get_config_map(self) -> dict:
+        conf = super().get_config_map()
+        conf['addresses'] = self._addresses
+        conf['values'] = self._values
+        return conf
 
-class RelayConfig(BaseConfig):
-    pass
 
-
-class Config:
-    general: GeneralConfig = GeneralConfig()
-    audio: AudioConfig = AudioConfig()
-    dmx: DmxConfig = DmxConfig()
-    relay: RelayConfig = RelayConfig()
-
-    def general(self):
-        return self.general
-
-    def audio(self):
-        return self.audio
-
-    def dmx(self):
-        return self.dmx
-
-    def relay(self):
-        return self.relay
+class RelayConfig(BaseCallbackConfig):
+    def __init__(self):
+        self.set_active(False)

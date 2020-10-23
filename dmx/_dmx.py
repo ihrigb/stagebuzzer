@@ -9,7 +9,7 @@ DMXINIT2 = bytes([10]) + bytes([2]) + bytes([0]) + bytes([0]) + bytes([0])
 
 
 class Dmx:
-    def __init__(self, serial_port: int):
+    def __init__(self, serial_port='/dev/ttyUSB0'):
         try:
             self._serial = serial.Serial(serial_port, baudrate=57600)
         except:
