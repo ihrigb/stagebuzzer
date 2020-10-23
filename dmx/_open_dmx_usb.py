@@ -41,4 +41,4 @@ class OpenDmxUsb(threading.Thread):
     def run(self) -> None:
         while True:
             self._send_dmx()
-            time.sleep(0.01)
+            time.sleep(0.1)
