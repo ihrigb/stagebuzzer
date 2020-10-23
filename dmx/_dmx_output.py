@@ -17,4 +17,4 @@ class DmxOutput:
         self._channels = [0] * 513
 
     def flush(self):
-        self._dmx.send_dmx(self._channels)
+        self._dmx.set_channel_values(self._channels)

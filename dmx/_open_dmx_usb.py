@@ -1,10 +1,12 @@
 import pyftdi.ftdi as ftdi
+import threading
+import time
 
 vendor = 0x0403
 product = 0x6001
 
 
-class OpenDmxUsb:
+class OpenDmxUsb(threading.Thread):
     def __init__(self):
         self.baud_rate = 250000
         self.data_bits = 8
@@ -12,6 +14,7 @@ class OpenDmxUsb:
         self.parity = 'N'
         self.flow_ctrl = ''
         self.rts_state = 0
+        self.channel_values = [0] * 513
         self._init_dmx()
 
     def _init_dmx(self):
@@ -24,9 +27,17 @@ class OpenDmxUsb:
         self.ftdi.purge_tx_buffer()
         self.ftdi.set_rts(self.rts_state)
 
-    def send_dmx(self, channel_values):
-        self.ftdi.write_data(channel_values)
+    def _send_dmx(self):
+        self.ftdi.write_data(self.channel_values)
         # Need to generate two bits for break
         self.ftdi.set_line_property(self.data_bits, self.stop_bits, self.parity, break_=True)
         self.ftdi.set_line_property(self.data_bits, self.stop_bits, self.parity, break_=True)
         self.ftdi.set_line_property(self.data_bits, self.stop_bits, self.parity, break_=False)
+
+    def set_channel_values(self, channel_values):
+        self.channel_values = channel_values
+
+    def run(self) -> None:
+        while True:
+            self._send_dmx()
+            time.sleep(0.001)
