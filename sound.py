@@ -1,3 +1,5 @@
-import simpleaudio.functionchecks as fc
+import simpleaudio
 
-fc.LeftRightCheck.run()
+wave_obj = simpleaudio.WaveObject.from_wave_file('/mnt/usb/Buzzer.wav')
+play_obj = wave_obj.play()
+play_obj.wait_done()
