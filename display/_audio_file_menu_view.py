@@ -91,7 +91,7 @@ class AudioFileMenuView(View):
             self._init()
             self.draw()
         else:
-            self._audio_config.set_audio_file(current_file.get_absolue_path())
+            self._audio_config.set_audio_file(current_file.get_absolute_path())
 
     def draw(self):
         self.write_line(0, "Audio File")
