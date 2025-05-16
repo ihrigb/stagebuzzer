@@ -23,23 +23,21 @@ class AudioMenuView(View):
         return audio_menu_view_name
 
     def up(self, display: Display):
-        # if self._cursor > min_cursor_value:
-        #    self._cursor -= 1
-        #    self.draw()
-        pass
+        if self._cursor > min_cursor_value:
+           self._cursor -= 1
+           self.draw()
 
     def down(self, display: Display):
-        # if self._cursor < max_cursor_value:
-        #    self._cursor += 1
-        #    self.draw()
-        pass
+        if self._cursor < max_cursor_value:
+           self._cursor += 1
+           self.draw()
 
     def ok(self, display: Display):
-        # if self._cursor == active_cursor_value:
-        self._audio_config.set_active(not self._audio_config.get_active())
-        self.draw()
-        # elif self._cursor == file_cursor_value:
-        #    display.switch_view("audio_file_menu_view")
+        if self._cursor == active_cursor_value:
+            self._audio_config.set_active(not self._audio_config.get_active())
+            self.draw()
+        elif self._cursor == file_cursor_value:
+           display.switch_view("audio_file_menu_view")
 
     def esc(self, display: Display):
         display.switch_view("menu_view")
@@ -60,10 +58,10 @@ class AudioMenuView(View):
         self.write_line(1, line1)
 
         line2 = ""
-        # if self._cursor == file_cursor_value:
-        #    line2 += "> "
-        # else:
-        #    line2 += "  "
+        if self._cursor == file_cursor_value:
+           line2 += "> "
+        else:
+           line2 += "  "
         line2 += "File"
         self.write_line(2, line2)
 

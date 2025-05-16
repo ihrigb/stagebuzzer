@@ -39,7 +39,7 @@ def main():
     dmx_menu_buzzer_1_view = display.DmxBuzzerMenuView(lcd, button_lights, "dmx_menu_buzzer_1_view", "1", dmx_config)
     dmx_menu_buzzer_2_view = display.DmxBuzzerMenuView(lcd, button_lights, "dmx_menu_buzzer_2_view", "2", dmx_config)
     audio_menu_view = display.AudioMenuView(lcd, button_lights, audio_config)
-    # audio_file_menu_view = display.AudioFileMenuView(lcd, button_lights, audio_config)
+    audio_file_menu_view = display.AudioFileMenuView(lcd, button_lights, audio_config)
     relay_menu_view = display.RelayMenuView(lcd, button_lights, relay_config)
     information_menu_view = display.InformationMenuView(lcd, button_lights)
 
