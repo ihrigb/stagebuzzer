@@ -49,7 +49,7 @@ class BaseCallbackConfig(BaseConfig):
 class AudioConfig(BaseCallbackConfig):
     def __init__(self):
         self.set_active(False)
-        self._audio_file = '/mnt/usb/Buzzer.wav'
+        self._audio_file = None
 
     def get_audio_file(self):
         return self._audio_file
