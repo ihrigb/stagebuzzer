@@ -1,4 +1,5 @@
 from ._button_lights import ButtonLights
+from ._lcd import Lcd
 from ._view import View
 from ._display import Display
 from information import get_ip_address
@@ -7,8 +8,8 @@ information_menu_view_name = "information_menu_view"
 
 
 class InformationMenuView(View):
-    def __init__(self, button_lights: ButtonLights):
-        super().__init__(button_lights)
+    def __init__(self, lcd: Lcd, button_lights: ButtonLights):
+        super().__init__(lcd, button_lights)
 
     def name(self):
         return information_menu_view_name

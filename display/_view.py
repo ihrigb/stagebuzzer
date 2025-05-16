@@ -1,14 +1,12 @@
 from ._button_lights import ButtonLights
 from ._display import Display
-from ._ea_dip203j_3njw_lcd import EaDip203J4Nlw
+from ._lcd import Lcd
 
 
 class View:
-
-    _lcd = EaDip203J4Nlw()
-
-    def __init__(self, button_lights: ButtonLights):
+    def __init__(self, lcd: Lcd, button_lights: ButtonLights):
         self._button_ligts = button_lights
+        self._lcd = lcd
 
     def name(self):
         pass

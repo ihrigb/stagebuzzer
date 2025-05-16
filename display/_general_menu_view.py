@@ -1,4 +1,5 @@
 from ._button_lights import ButtonLights
+from ._lcd import Lcd
 from ._view import View
 from ._display import Display
 from config import GeneralConfig
@@ -10,8 +11,8 @@ class GeneralMenuView(View):
 
     _edit_mode = False
 
-    def __init__(self, button_lights: ButtonLights, general_config: GeneralConfig):
-        super().__init__(button_lights)
+    def __init__(self, lcd: Lcd, button_lights: ButtonLights, general_config: GeneralConfig):
+        super().__init__(lcd, button_lights)
         self._general_config = general_config
 
     def name(self):

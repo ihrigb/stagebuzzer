@@ -1,4 +1,5 @@
 from ._button_lights import ButtonLights
+from ._lcd import Lcd
 from ._view import View
 from ._display import Display
 import buzzer as bzr
@@ -13,8 +14,8 @@ class MainView(View, bzr.BuzzerCallback):
     _buzzer_1_enabled = False
     _buzzer_2_enabled = False
 
-    def __init__(self, button_lights: ButtonLights):
-        super().__init__(button_lights)
+    def __init__(self, lcd: Lcd, button_lights: ButtonLights):
+        super().__init__(lcd, button_lights)
 
     def name(self):
         return main_view_name

@@ -1,4 +1,5 @@
 from ._button_lights import ButtonLights
+from ._lcd import Lcd
 from ._view import View
 from ._display import Display
 from config import DmxConfig
@@ -14,8 +15,8 @@ class DmxBuzzerMenuView(View):
     _cursor = min_cursor
     _edit_mode = False
 
-    def __init__(self, button_lights: ButtonLights, name: str, buzzer_name: str, dmx_config: DmxConfig):
-        super().__init__(button_lights)
+    def __init__(self, lcd: Lcd, button_lights: ButtonLights, name: str, buzzer_name: str, dmx_config: DmxConfig):
+        super().__init__(lcd, button_lights)
         self._name = name
         self._buzzer_name = buzzer_name
         self._dmx_config = dmx_config

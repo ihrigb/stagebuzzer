@@ -1,4 +1,5 @@
 from ._button_lights import ButtonLights
+from ._lcd import Lcd
 from ._view import View
 from ._display import Display
 
@@ -28,8 +29,8 @@ class MenuView(View):
     _top: int = 0
     _cursor: int = 0
 
-    def __init__(self, button_lights: ButtonLights):
-        super().__init__(button_lights)
+    def __init__(self, lcd: Lcd, button_lights: ButtonLights):
+        super().__init__(lcd, button_lights)
 
     def name(self):
         return menu_view_name
