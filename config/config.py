@@ -47,7 +47,7 @@ class BaseCallbackConfig(BaseConfig):
 
 
 class AudioConfig(BaseCallbackConfig):
-    def __init(self):
+    def __init__(self):
         self.set_active(False)
         self._audio_file: File = None
 
