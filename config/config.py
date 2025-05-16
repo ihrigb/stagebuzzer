@@ -47,7 +47,20 @@ class BaseCallbackConfig(BaseConfig):
 
 
 class AudioConfig(BaseCallbackConfig):
-    pass
+    def __init(self):
+        self.set_active(False)
+        self._audio_file: File = None
+
+    def get_audio_file(self):
+        return self._audio_file
+
+    def set_audio_file(self, audio_file: File):
+        self._audio_file = audio_file
+
+    def get_config_map(self) -> dict:
+        conf = super().get_config_map()
+        conf['audio_file'] = self._audio_file
+        return conf
 
 
 class DmxConfig(BaseCallbackConfig):
