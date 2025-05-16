@@ -1,4 +1,5 @@
 from ._button_lights import ButtonLights
+from ._lcd import Lcd
 from ._view import View
 from ._display import Display
 from config import AudioConfig
@@ -31,8 +32,8 @@ class AudioFileMenuView(View):
     _max_cursor_value = 3
     _cwd: File = None
 
-    def __init__(self, button_lights: ButtonLights, audio_config: AudioConfig):
-        super().__init__(button_lights)
+    def __init__(self, lcd: Lcd, button_lights: ButtonLights, audio_config: AudioConfig):
+        super().__init__(lcd, button_lights)
         self._audio_config = audio_config
         self._init()
 
