@@ -38,11 +38,15 @@ class AudioFileMenuView(View):
         self._init()
 
     def _init(self):
-        file: File = None
+        file = None
         if self._cwd is None:
-            file = self._audio_config.get_audio_file()
-            if file is not None and file.exists():
-                self._cwd = file.parent()
+            file_name = self._audio_config.get_audio_file()
+            if file_name is not None:
+                File = File(file_name)
+                if file.exists():
+                    self._cwd = file.parent()
+                else:
+                    self._cwd = root()
             else:
                 self._cwd = root()
         dir_files = sorted_children(self._cwd)
@@ -87,7 +91,7 @@ class AudioFileMenuView(View):
             self._init()
             self.draw()
         else:
-            self._audio_config.set_audio_file(current_file)
+            self._audio_config.set_audio_file(current_file.get_absolue_path())
 
     def draw(self):
         self.write_line(0, "Audio File")
@@ -127,9 +131,10 @@ class AudioFileMenuView(View):
         return cwd_children[self._top + self._cursor - 1]
 
     def _is_in_configured_cwd(self) -> bool:
-        file = self._audio_config.get_audio_file()
-        if file is None:
+        file_name = self._audio_config.get_audio_file()
+        if file_name is None:
             return False
         if self._cwd is None:
             return False
+        file = File(file_name)
         return file.parent().get_absolute_path() == self._cwd.get_absolute_path()
