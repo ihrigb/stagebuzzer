@@ -7,10 +7,12 @@ import time
 import dmx
 import utils
 import audio
+import relay
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
 
+terminate = False
 
 def main():
     parser = argparse.ArgumentParser(description='Stagebuzzer')
@@ -55,11 +57,15 @@ def main():
     audio_callback = audio.AudioCallback(audio_config)
     callbacks.append(audio_callback)
 
+    relay_output = relay.RelayOutput()
+    relay_callback = relay.RelayCallback(relay_output, relay_config)
+    callbacks.append(relay_callback)
+
     buzzer_core = buzzer.BuzzerCore(general_config, callbacks)
 
     d.start()
 
-    while True:
+    while not terminate:
         time.sleep(1)
 
 
@@ -67,6 +73,7 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
+        terminate = True
         exit(0)
     finally:
         GPIO.cleanup()
