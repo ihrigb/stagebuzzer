@@ -9,13 +9,14 @@ class AudioCallback(buzzer.BuzzerCallback):
 
     def __init__(self, audio_config: config.AudioConfig):
         self._audio_config = audio_config
-        self._wave_object = simpleaudio.WaveObject.from_wave_file('/mnt/usb/AirHorn.wav')
 
     def on_buzz(self, buz: str):
         logging.debug('Audio callback called.')
         if not self._audio_config.get_active():
             logging.debug('Audio callback is not active.')
             return
+
+        self._wave_object = simpleaudio.WaveObject.from_wave_file(self._audio_config.get_audio_file())
 
         if self._play_object is not None:
             logging.error('Already playing sound.')
