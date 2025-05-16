@@ -1,8 +1,8 @@
 import RPi.GPIO as GPIO
 
 _relay_pins = dict()
-_relay_pins["1"] = 16
-_relay_pins["2"] = 20
+_relay_pins["1"] = 14
+_relay_pins["2"] = 15
 
 
 class RelayOutput:
