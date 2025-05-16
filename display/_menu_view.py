@@ -17,7 +17,7 @@ class SubMenu:
 
 general_submenu = SubMenu("General", "general_menu_view")
 dmx_submenu = SubMenu("DMX", "dmx_menu_view")
-# audio_submenu = SubMenu("Audio", "audio_menu_view")
+audio_submenu = SubMenu("Audio", "audio_menu_view")
 relay_submenu = SubMenu("Relay", "relay_menu_view")
 information_submenu = SubMenu("Information", "information_menu_view")
 menu_view_name = "menu_view"
