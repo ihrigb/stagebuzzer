@@ -75,6 +75,7 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         terminate = True
-        exit(0)
     finally:
         GPIO.cleanup()
+
+    exit(0)

@@ -16,7 +16,6 @@ class EaDip203J4Nlw(Lcd):
     
     def __init__(self) -> None:
         super().__init__()
-        atexit.register(self.close)
 
     def write_line(self, num: int, value: str):
         self._lines[num] = value
@@ -31,6 +30,3 @@ class EaDip203J4Nlw(Lcd):
                 target_row = 1
             self._lcd.cursor_pos = (target_row, 0)
             self._lcd.write_string(value)
-
-    def close(self):
-        self._lcd.close(clear=True)

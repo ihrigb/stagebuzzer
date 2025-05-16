@@ -22,7 +22,7 @@ audio_submenu = SubMenu("Audio", "audio_menu_view")
 relay_submenu = SubMenu("Relay", "relay_menu_view")
 information_submenu = SubMenu("Information", "information_menu_view")
 menu_view_name = "menu_view"
-menu_list = [general_submenu, dmx_submenu, relay_submenu, information_submenu]
+menu_list = [general_submenu, dmx_submenu, relay_submenu, audio_submenu, information_submenu]
 
 
 class MenuView(View):
