@@ -3,7 +3,7 @@ from ._lcd import Lcd
 from ._view import View
 from ._display import Display
 from config import AudioConfig
-from usbdrive import File, root
+from usbdrive import OsFile, File, root
 
 audio_file_menu_view_name = "audio_file_menu_view"
 parent_cursor_value = 1
@@ -42,7 +42,7 @@ class AudioFileMenuView(View):
         if self._cwd is None:
             file_name = self._audio_config.get_audio_file()
             if file_name is not None:
-                file = File(file_name)
+                file = OsFile(file_name)
                 if file.exists():
                     self._cwd = file.parent()
                 else:
@@ -136,5 +136,5 @@ class AudioFileMenuView(View):
             return False
         if self._cwd is None:
             return False
-        file = File(file_name)
+        file = OsFile(file_name)
         return file.parent().get_absolute_path() == self._cwd.get_absolute_path()
