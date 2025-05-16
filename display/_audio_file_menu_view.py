@@ -42,7 +42,7 @@ class AudioFileMenuView(View):
         if self._cwd is None:
             file_name = self._audio_config.get_audio_file()
             if file_name is not None:
-                File = File(file_name)
+                file = File(file_name)
                 if file.exists():
                     self._cwd = file.parent()
                 else:
